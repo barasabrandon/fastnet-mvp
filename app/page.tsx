@@ -1,4 +1,5 @@
 'use client';
+
 import React, { useState } from 'react';
 import { Wifi, HelpCircle, Edit2, Trash2, Plus, X, LogOut } from 'lucide-react';
 
@@ -73,8 +74,8 @@ const initialPricingData: PricingData = {
   social: [],
 };
 
-export default function WiFiPricingApp(): JSX.Element {
-  const [activeTab, setActiveTab] = useState<TabId>('daily');
+export default function WiFiPricingApp() {
+  const [activeTab, setActiveTab] = useState<TabId>('monthly');
   const [voucherInput, setVoucherInput] = useState<string>('');
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
   const [showLoginModal, setShowLoginModal] = useState<boolean>(false);
