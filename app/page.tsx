@@ -75,7 +75,7 @@ const initialPricingData: PricingData = {
 };
 
 export default function WiFiPricingApp() {
-  const [activeTab, setActiveTab] = useState<TabId>('monthly');
+  const [activeTab, setActiveTab] = useState<TabId>('daily');
   const [voucherInput, setVoucherInput] = useState<string>('');
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
   const [showLoginModal, setShowLoginModal] = useState<boolean>(false);
