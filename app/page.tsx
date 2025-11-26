@@ -54,15 +54,15 @@ const initialPricingData: PricingData = {
     { id: 17, name: 'Weekly Streaming', price: 270, duration: '7 days', devices: 1, speed: '8Mbps' },
   ],
   monthly: [
-    { id: 18, name: '2 Weeks Unlimited', price: 300, duration: '14 days', devices: 1, speed: '5Mbps' },
+    { id: 18, name: '2 Weeks Unlimited', price: 299, duration: '14 days', devices: 1, speed: '5Mbps' },
     { id: 19, name: 'Streaming Package', price: 420, duration: '14 days', devices: 1, speed: '8Mbps' },
     { id: 20, name: '3 Weeks Unlimited', price: 430, duration: '21 days', devices: 1, speed: '5Mbps' },
     { id: 21, name: '2 Weeks 2 Devices', price: 480, duration: '14 days', devices: 2, speed: '5Mbps' },
     { id: 22, name: 'Monthly Unlimited', price: 550, duration: '30 days', devices: 1, speed: '5Mbps' },
     { id: 23, name: '3 Weeks Streaming', price: 580, duration: '21 days', devices: 1, speed: '8Mbps' },
     { id: 24, name: '3 Weeks 2 Devices', price: 680, duration: '21 days', devices: 2, speed: '5Mbps' },
-    { id: 25, name: 'Monthly 2 Devices', price: 880, duration: '30 days', devices: 2, speed: '5Mbps' },
-    { id: 26, name: 'Monthly Streaming Pack', price: 920, duration: '30 days', devices: 1, speed: '8Mbps' },
+    { id: 25, name: 'Monthly 2 Devices', price: 799, duration: '30 days', devices: 2, speed: '5Mbps' },
+    { id: 26, name: 'Monthly Streaming Pack', price: 929, duration: '30 days', devices: 1, speed: '8Mbps' },
     { id: 27, name: 'Monthly 3 Devices', price: 1199, duration: '30 days', devices: 3, speed: '5Mbps' },
   ],
   data: [
