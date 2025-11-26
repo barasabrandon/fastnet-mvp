@@ -67,7 +67,7 @@ const initialPricingData: PricingData = {
   ],
   data: [
     { id: 28, name: '3GB No Expiry', price: 29, duration: '3 GB', devices: 1, speed: '5Mbps', noExpiry: true },
-    { id: 29, name: '7GB No Expiry', price: 98, duration: '7 GB', devices: 1, speed: '5Mbps', noExpiry: true },
+    { id: 29, name: '7GB No Expiry', price: 99, duration: '7 GB', devices: 1, speed: '5Mbps', noExpiry: true },
   ],
   social: [],
 };
