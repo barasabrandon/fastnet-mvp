@@ -35,16 +35,14 @@ interface EditingPackage extends Package {
 
 const initialPricingData: PricingData = {
   daily: [
-    { id: 1, name: 'Test Na Bob', price: 1, duration: '1 minute', devices: 1, speed: '5Mbps' },
-    { id: 2, name: '30 Mins Unlimited', price: 4, duration: '30 minutes', devices: 1, speed: '5Mbps' },
-    { id: 3, name: '1 hour pass', price: 6, duration: '1 hour', devices: 1, speed: '5Mbps' },
-    { id: 4, name: '3hr pass', price: 10, duration: '3 hours', devices: 1, speed: '5Mbps', popular: true },
-    { id: 5, name: '6hr pass', price: 15, duration: '6 hours', devices: 1, speed: '5Mbps' },
-    { id: 6, name: '4 HRS streaming', price: 20, duration: '4 hours', devices: 1, speed: '9Mbps' },
-    { id: 7, name: '12 hour pass', price: 22, duration: '12 hours', devices: 1, speed: '5Mbps' },
-    { id: 8, name: '24hr unlimited', price: 28, duration: '1 day', devices: 1, speed: '5Mbps' },
-    { id: 9, name: '2 devices 24hrs', price: 45, duration: '1 day', devices: 2, speed: '5Mbps' },
-    { id: 10, name: '24hrs Streaming Package', price: 52, duration: '1 day', devices: 1, speed: '8Mbps' },
+    { id: 1, name: '1 hour unlimited', price: 5, duration: '1 hour', devices: 1, speed: '5Mbps' },
+    { id: 2, name: '4hr unlimited', price: 10, duration: '4 hours', devices: 1, speed: '5Mbps', popular: true },
+    { id: 3, name: '10hr unlimited', price: 15, duration: '10 hours', devices: 1, speed: '5Mbps' },
+    { id: 4, name: '15 hour unlimited', price: 20, duration: '15 hours', devices: 1, speed: '5Mbps' },
+    { id: 5, name: '24hr unlimited', price: 30, duration: '24 hours', devices: 1, speed: '5Mbps' },
+    { id: 6, name: '2 devices 24hrs', price: 45, duration: '1 day', devices: 2, speed: '5Mbps' },
+    { id: 7, name: '4 HRS streaming', price: 20, duration: '4 hours', devices: 1, speed: '9Mbps' },
+    { id: 8, name: '24hrs Streaming', price: 52, duration: '1 day', devices: 1, speed: '8Mbps' },
   ],
   weekly: [
     { id: 11, name: '2-Day Pass', price: 53, duration: '2 days', devices: 1, speed: '5Mbps' },
@@ -191,10 +189,10 @@ export default function WiFiPricingApp() {
 
         {/* Voucher Input Section */}
         <div className="bg-white rounded-3xl shadow-md border-2 border-gray-300 p-8 mb-6">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Voucher or Mpesa Message</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center uppercase">Fastnet Wifi</h2>
           <input
             type="text"
-            placeholder="E.g TH35PQOM17 or Message"
+            placeholder="Enter Voucher Code E.g TH35PQOM17 or Message"
             value={voucherInput}
             onChange={(e) => setVoucherInput(e.target.value)}
             className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-xl mb-4 focus:outline-none focus:border-blue-500"
@@ -202,7 +200,7 @@ export default function WiFiPricingApp() {
           <button onClick={handleConnect} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl text-lg transition-colors mb-4">
             Connect
           </button>
-          <div className="bg-yellow-400 text-blue-900 font-bold py-4 px-6 rounded-xl text-center mb-4">Customer Care: 0723551116</div>
+          <div className="bg-yellow-400 text-blue-900 font-bold py-4 px-6 rounded-xl text-center mb-4">Customer Care: 0743145612</div>
           <div className="text-center text-gray-600">
             Already paid?{' '}
             <a href="#" className="text-red-500 hover:text-red-600 font-semibold">
