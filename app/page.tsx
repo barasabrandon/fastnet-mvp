@@ -19,10 +19,9 @@ interface PricingData {
   weekly: Package[];
   monthly: Package[];
   data: Package[];
-  social: Package[];
 }
 
-type TabId = 'daily' | 'weekly' | 'monthly' | 'data' | 'social';
+type TabId = 'daily' | 'weekly' | 'monthly' | 'data';
 
 interface Tab {
   id: TabId;
@@ -69,7 +68,6 @@ const initialPricingData: PricingData = {
     { id: 28, name: '3GB No Expiry', price: 29, duration: '3 GB', devices: 1, speed: '5Mbps', noExpiry: true },
     { id: 29, name: '7GB No Expiry', price: 99, duration: '7 GB', devices: 1, speed: '5Mbps', noExpiry: true },
   ],
-  social: [],
 };
 
 export default function WiFiPricingApp() {
@@ -90,7 +88,6 @@ export default function WiFiPricingApp() {
     { id: 'weekly', label: 'Weekly' },
     { id: 'monthly', label: 'Monthly' },
     { id: 'data', label: 'Data' },
-    { id: 'social', label: 'Social' },
   ];
 
   const handleConnect = (): void => {
@@ -188,19 +185,19 @@ export default function WiFiPricingApp() {
         </div>
 
         {/* Voucher Input Section */}
-        <div className="bg-white rounded-3xl shadow-md border-2 border-gray-300 p-8 mb-6">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center uppercase">Fastnet Wifi</h2>
+        <div className="bg-white rounded-3xl shadow-md border-2 border-gray-300 p-2 mb-4">
+          <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center uppercase">Fastnet Wifi</h1>
           <input
             type="text"
             placeholder="Enter Voucher Code E.g TH35PQOM17 or Message"
             value={voucherInput}
             onChange={(e) => setVoucherInput(e.target.value)}
-            className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-xl mb-4 focus:outline-none focus:border-blue-500"
+            className="w-full py-2 px-2 text-lg border-2 border-gray-300 rounded-xl mb-4 focus:outline-none focus:border-blue-500"
           />
-          <button onClick={handleConnect} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl text-lg transition-colors mb-4">
+          <button onClick={handleConnect} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded-xl text-lg transition-colors mb-4">
             Connect
           </button>
-          <div className="bg-yellow-400 text-blue-900 font-bold py-4 px-6 rounded-xl text-center mb-4">Customer Care: 0743145612</div>
+          <div className="bg-yellow-400 text-blue-900 font-bold py-2 px-2 rounded-xl text-center mb-4">Customer Care: 0743145612</div>
           <div className="text-center text-gray-600">
             Already paid?{' '}
             <a href="#" className="text-red-500 hover:text-red-600 font-semibold">
@@ -233,15 +230,15 @@ export default function WiFiPricingApp() {
         {/* Package Cards */}
         <div className="space-y-4">
           {pricingData[activeTab]?.map((pkg) => (
-            <div key={pkg.id} className="bg-white rounded-2xl shadow-md border-2 border-gray-300 p-6 hover:shadow-lg transition-shadow">
-              <div className="flex items-start gap-6">
+            <div key={pkg.id} className="bg-white rounded-2xl shadow-md border-2 border-gray-300 p-4 hover:shadow-lg transition-shadow">
+              <div className="flex items-center gap-6">
                 <div className="text-left">
-                  <div className="text-sm text-gray-500 font-semibold mb-1">KES</div>
+                  <div className="text-sm text-gray-500 font-semibold mb-1">KSH</div>
                   <div className="text-5xl font-bold text-gray-900">{pkg.price}</div>
                 </div>
 
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-3">{pkg.name}</h3>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-1">{pkg.name}</h3>
                   <div className="flex items-center gap-2 text-gray-600 mb-4 flex-wrap">
                     <span>{pkg.duration}</span>
                     <span>•</span>
@@ -256,8 +253,8 @@ export default function WiFiPricingApp() {
 
                   {pkg.popular && <div className="inline-block bg-orange-500 text-white font-bold px-4 py-2 rounded-lg mb-3">POPULAR</div>}
 
-                  <div className="flex gap-3 items-center flex-wrap">
-                    <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl transition-colors">BUY NOW</button>
+                  <div className="flex gap-1 items-center flex-wrap">
+                    <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl transition-colors">BUY NOW</button>
 
                     {isAdmin && (
                       <>
@@ -361,7 +358,7 @@ export default function WiFiPricingApp() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Price (KES)</label>
+                  <label className="block text-gray-700 font-semibold mb-2">Price (KSH)</label>
                   <input
                     type="number"
                     value={editForm.price || 0}
