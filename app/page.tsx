@@ -21,7 +21,7 @@ interface PricingData {
   data: Package[];
 }
 
-type TabId = 'daily' | 'weekly' | 'monthly' | 'data';
+type TabId = 'daily' | 'weekly' | 'monthly';
 
 interface Tab {
   id: TabId;
@@ -34,35 +34,24 @@ interface EditingPackage extends Package {
 
 const initialPricingData: PricingData = {
   daily: [
-    { id: 1, name: '1 hour unlimited', price: 5, duration: '1 hour', devices: 1, speed: '5Mbps' },
+    { id: 1, name: '1 hour unlimited', price: 6, duration: '1 hour', devices: 1, speed: '5Mbps' },
     { id: 2, name: '3hr 15mins unlimited', price: 10, duration: '3 hrs 15mins', devices: 1, speed: '5Mbps', popular: true },
     { id: 3, name: '10hr unlimited', price: 15, duration: '10 hours', devices: 1, speed: '5Mbps' },
     { id: 4, name: '15 hour unlimited', price: 20, duration: '15 hours', devices: 1, speed: '5Mbps' },
     { id: 5, name: '24hr unlimited', price: 30, duration: '24 hours', devices: 1, speed: '5Mbps' },
-    { id: 6, name: '2 devices 24hrs', price: 45, duration: '1 day', devices: 2, speed: '5Mbps' },
-    { id: 7, name: '4 HRS streaming', price: 20, duration: '4 hours', devices: 1, speed: '9Mbps' },
-    { id: 8, name: '24hrs Streaming', price: 52, duration: '1 day', devices: 1, speed: '8Mbps' },
   ],
   weekly: [
-    { id: 11, name: '2-Day Unlimited', price: 50, duration: '2 days', devices: 1, speed: '5Mbps' },
-    { id: 12, name: '3-Day Unlimited', price: 70, duration: '3 days', devices: 1, speed: '5Mbps' },
+    { id: 11, name: '2-Days Unlimited', price: 50, duration: '2 days', devices: 1, speed: '5Mbps' },
     { id: 13, name: '2-Day Duo', price: 80, duration: '3 days', devices: 2, speed: '5Mbps' },
-    { id: 14, name: '3-Day Duo', price: 110, duration: '3 days', devices: 2, speed: '5Mbps' },
-    { id: 15, name: 'Weekly Unlimited', price: 160, duration: '7 days', devices: 1, speed: '5Mbps' },
-    { id: 16, name: 'Weekly Duo', price: 255, duration: '7 days', devices: 2, speed: '5Mbps' },
-    { id: 17, name: 'Weekly Streaming', price: 270, duration: '7 days', devices: 1, speed: '8Mbps' },
+    { id: 15, name: '1 Week Unlimited', price: 160, duration: '7 days', devices: 1, speed: '5Mbps' },
   ],
   monthly: [
     { id: 18, name: '2 Weeks Unlimited', price: 299, duration: '14 days', devices: 1, speed: '5Mbps' },
-    { id: 19, name: 'Streaming Package', price: 420, duration: '14 days', devices: 1, speed: '8Mbps' },
-    { id: 20, name: '3 Weeks Unlimited', price: 430, duration: '21 days', devices: 1, speed: '5Mbps' },
-    { id: 21, name: '2 Weeks 2 Devices', price: 480, duration: '14 days', devices: 2, speed: '5Mbps' },
-    { id: 22, name: 'Monthly Unlimited', price: 550, duration: '30 days', devices: 1, speed: '5Mbps' },
+    { id: 22, name: '1 Month Unlimited', price: 550, duration: '30 days', devices: 1, speed: '5Mbps' },
     { id: 23, name: '3 Weeks Streaming', price: 580, duration: '21 days', devices: 1, speed: '8Mbps' },
     { id: 24, name: '3 Weeks 2 Devices', price: 680, duration: '21 days', devices: 2, speed: '5Mbps' },
-    { id: 25, name: 'Monthly 2 Devices', price: 799, duration: '30 days', devices: 2, speed: '5Mbps' },
-    { id: 26, name: 'Monthly Streaming Pack', price: 929, duration: '30 days', devices: 1, speed: '8Mbps' },
-    { id: 27, name: 'Monthly 3 Devices', price: 1199, duration: '30 days', devices: 3, speed: '5Mbps' },
+    { id: 25, name: '1 Month Unlimited', price: 799, duration: '30 days', devices: 2, speed: '5Mbps' },
+    { id: 26, name: '1 Month Streaming', price: 999, duration: '30 days', devices: 1, speed: '8Mbps' },
   ],
   data: [
     { id: 28, name: '3GB No Expiry', price: 29, duration: '3 GB', devices: 1, speed: '5Mbps', noExpiry: true },
@@ -87,7 +76,6 @@ export default function WiFiPricingApp() {
     { id: 'daily', label: 'Daily' },
     { id: 'weekly', label: 'Weekly' },
     { id: 'monthly', label: 'Monthly' },
-    { id: 'data', label: 'Data' },
   ];
 
   const handleConnect = (): void => {
