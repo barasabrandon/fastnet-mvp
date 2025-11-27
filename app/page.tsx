@@ -35,7 +35,7 @@ interface EditingPackage extends Package {
 const initialPricingData: PricingData = {
   daily: [
     { id: 1, name: '1 hour unlimited', price: 5, duration: '1 hour', devices: 1, speed: '5Mbps' },
-    { id: 2, name: '4hr unlimited', price: 10, duration: '4 hours', devices: 1, speed: '5Mbps', popular: true },
+    { id: 2, name: '3hr 15mins unlimited', price: 10, duration: '3 hrs 15mins', devices: 1, speed: '5Mbps', popular: true },
     { id: 3, name: '10hr unlimited', price: 15, duration: '10 hours', devices: 1, speed: '5Mbps' },
     { id: 4, name: '15 hour unlimited', price: 20, duration: '15 hours', devices: 1, speed: '5Mbps' },
     { id: 5, name: '24hr unlimited', price: 30, duration: '24 hours', devices: 1, speed: '5Mbps' },
