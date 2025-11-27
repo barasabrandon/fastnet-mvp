@@ -61,7 +61,6 @@ const initialPricingData: PricingData = {
 
 export default function WiFiPricingApp() {
   const [activeTab, setActiveTab] = useState<TabId>('daily');
-  const [voucherInput, setVoucherInput] = useState<string>('');
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
   const [showLoginModal, setShowLoginModal] = useState<boolean>(false);
   const [loginEmail, setLoginEmail] = useState<string>('');
@@ -78,12 +77,6 @@ export default function WiFiPricingApp() {
     { id: 'monthly', label: 'Monthly' },
   ];
 
-  const handleConnect = (): void => {
-    if (voucherInput.trim()) {
-      alert(`Connecting with: ${voucherInput}`);
-    }
-  };
-
   const handleLogin = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     if (loginEmail === 'admin@gmail.com' && loginPassword === 'fastnet@001') {
@@ -97,39 +90,9 @@ export default function WiFiPricingApp() {
     }
   };
 
-  const handleLogout = (): void => {
-    setIsAdmin(false);
-  };
-
   const handleEdit = (pkg: Package, category: TabId): void => {
     setEditingPackage({ ...pkg, category });
     setEditForm({ ...pkg });
-    setShowEditModal(true);
-  };
-
-  const handleDelete = (pkgId: number, category: TabId): void => {
-    if (confirm('Are you sure you want to delete this package?')) {
-      setPricingData((prev) => ({
-        ...prev,
-        [category]: prev[category].filter((pkg) => pkg.id !== pkgId),
-      }));
-    }
-  };
-
-  const handleAddNew = (): void => {
-    const allPackages = Object.values(pricingData).flat();
-    const newId = allPackages.length > 0 ? Math.max(...allPackages.map((p) => p.id)) + 1 : 1;
-    setEditingPackage({ id: 0, name: '', price: 0, duration: '', devices: 1, speed: '5Mbps', category: activeTab });
-    setEditForm({
-      id: newId,
-      name: '',
-      price: 0,
-      duration: '',
-      devices: 1,
-      speed: '5Mbps',
-      popular: false,
-      noExpiry: false,
-    });
     setShowEditModal(true);
   };
 
@@ -155,42 +118,33 @@ export default function WiFiPricingApp() {
     setEditingPackage(null);
   };
 
+  const paymentSteps = [
+    { step: 1, description: 'Tap on your preferred package' },
+    { step: 2, description: 'Enter your phone number' },
+    { step: 3, description: 'Click PAY NOW' },
+    { step: 4, description: 'Enter your m-pesa pin, wait for 20 sec for mpesa authentication' },
+  ];
+
   return (
     <div className="min-h-screen bg-gray-100 p-4">
       <div className="max-w-4xl mx-auto">
         {/* Admin Login/Logout Button */}
-        <div className="flex justify-end mb-4">
-          {!isAdmin ? (
-            <button onClick={() => setShowLoginModal(true)} className="bg-white text-blue-600 font-bold py-2 px-6 rounded-lg hover:bg-blue-50 transition-colors shadow-lg">
-              Admin Login
-            </button>
-          ) : (
-            <button onClick={handleLogout} className="bg-red-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-red-600 transition-colors shadow-lg flex items-center gap-2">
-              <LogOut className="w-4 h-4" />
-              Logout
-            </button>
-          )}
-        </div>
+        <div className="flex justify-center mb-4 uppercase font-bold text-2xl">Fastnet Wifi</div>
 
         {/* Voucher Input Section */}
         <div className="bg-white rounded-3xl shadow-md border-2 border-gray-300 p-2 mb-4">
-          <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center uppercase">Fastnet Wifi</h1>
-          <input
-            type="text"
-            placeholder="Enter Voucher Code E.g TH35PQOM17 or Message"
-            value={voucherInput}
-            onChange={(e) => setVoucherInput(e.target.value)}
-            className="w-full py-2 px-2 text-lg border-2 border-gray-300 rounded-xl mb-4 focus:outline-none focus:border-blue-500"
-          />
-          <button onClick={handleConnect} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded-xl text-lg transition-colors mb-4">
-            Connect
-          </button>
-          <div className="bg-yellow-400 text-blue-900 font-bold py-2 px-2 rounded-xl text-center mb-4">Customer Care: 0743145612</div>
-          <div className="text-center text-gray-600">
-            Already paid?{' '}
-            <a href="#" className="text-red-500 hover:text-red-600 font-semibold">
-              Get Voucher
-            </a>
+          <h2 className="text-2xl font-bold text-gray-800 mb-2 text-center capitalize">How to purchase</h2>
+          <ul className="m-2">
+            {paymentSteps?.map((item) => (
+              <li key={item?.step} className="py-0.5">
+                <span className="font-bold mr-2">{item?.step}.</span>
+                <span>{item?.description} </span>
+              </li>
+            ))}
+          </ul>
+          <div className="flex justify-center items-center flex-col uppercase font-bold">
+            <p>Customer Care Contact</p>
+            <p>0743145612</p>
           </div>
         </div>
 
@@ -206,14 +160,6 @@ export default function WiFiPricingApp() {
             </button>
           ))}
         </div>
-
-        {/* Add New Package Button (Admin Only) */}
-        {isAdmin && (
-          <button onClick={handleAddNew} className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-6 rounded-xl mb-4 flex items-center justify-center gap-2 transition-colors">
-            <Plus className="w-5 h-5" />
-            Add New Package
-          </button>
-        )}
 
         {/* Package Cards */}
         <div className="space-y-4">
@@ -243,19 +189,6 @@ export default function WiFiPricingApp() {
 
                   <div className="flex gap-1 items-center flex-wrap">
                     <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl transition-colors">BUY NOW</button>
-
-                    {isAdmin && (
-                      <>
-                        <button onClick={() => handleEdit(pkg, activeTab)} className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-xl transition-colors flex items-center gap-2">
-                          <Edit2 className="w-4 h-4" />
-                          Edit
-                        </button>
-                        <button onClick={() => handleDelete(pkg.id, activeTab)} className="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-xl transition-colors flex items-center gap-2">
-                          <Trash2 className="w-4 h-4" />
-                          Delete
-                        </button>
-                      </>
-                    )}
                   </div>
                 </div>
               </div>
